@@ -10,8 +10,6 @@ Source0:	http://wesley.informatik.uni-freiburg.de/~nopper/BillardGL/download/%{n
 URL:		http://www.billardgl.de
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 
 %description
 3D billard simulation using OpenGL.
