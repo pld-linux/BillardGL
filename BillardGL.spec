@@ -1,13 +1,13 @@
 Name:		BillardGL
 Summary:	3D billard simulation using OpenGL
 Summary(pl):	Symulacja bilarda u¿ywaj±ca OpenGL
-Version:	1.70
+Version:	1.75
 Release:	1
 Group:		X11/Applications/Games
 License:	GPL
 Vendor:		University of Freiburg / Germany
 Source0:	http://wesley.informatik.uni-freiburg.de/~nopper/BillardGL/download/%{name}-%{version}.tar.gz
-# Source0-md5:	925e8a3f42690b9c6b009bc77781cc52
+# Source0-md5:	46f2cf99e1a2b2aa4707d3500e43be47
 URL:		http://www.billardgl.de
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -33,7 +33,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name}/Texturen/{1,2,4,8}}
 
 cd src
 install BillardGL $RPM_BUILD_ROOT%{_bindir}
-install *.lang $RPM_BUILD_ROOT%{_datadir}/%{name}
+install lang/*.lang $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 for j in 1 2 4 8 ; do
 	for i in Texturen/$j/*; do
