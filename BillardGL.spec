@@ -6,9 +6,9 @@ Release:	1
 Group:		X11/Applications/Games
 License:	GPL
 Vendor:		University of Freiburg / Germany
-Source0:	http://wesley.informatik.uni-freiburg.de/~nopper/BillardGL/download/%{name}-%{version}.tar.gz
+Source0:	http://billardgl.sourceforge.net/download/%{name}-%{version}.tar.gz
 # Source0-md5:	46f2cf99e1a2b2aa4707d3500e43be47
-URL:		http://www.billardgl.de
+URL:		http://www.tobias-nopper.de/BillardGL/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 
