@@ -36,8 +36,6 @@ cd src
 install BillardGL $RPM_BUILD_ROOT%{_bindir}
 install *.lang $RPM_BUILD_ROOT%{_datadir}/%{name}
 
-gzip -9nf README
-
 for j in 1 2 4 8 ; do
 	for i in Texturen/$j/*; do
 		install $i $RPM_BUILD_ROOT%{_datadir}/%{name}/Texturen/$j
@@ -49,6 +47,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc src/*.gz
+%doc README src/*.gz
 %attr(755,root,root) %{_bindir}/BillardGL
 %{_datadir}/%{name}
