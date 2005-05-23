@@ -2,15 +2,15 @@ Name:		BillardGL
 Summary:	3D billard simulation using OpenGL
 Summary(pl):	Symulacja bilarda u¿ywaj±ca OpenGL
 Version:	1.75
-Release:	1
+Release:	2
 Group:		X11/Applications/Games
 License:	GPL
 Vendor:		University of Freiburg / Germany
 Source0:	http://billardgl.sourceforge.net/download/%{name}-%{version}.tar.gz
 # Source0-md5:	46f2cf99e1a2b2aa4707d3500e43be47
 URL:		http://www.tobias-nopper.de/BillardGL/
+BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %description
 3D billard simulation using OpenGL.
@@ -23,8 +23,8 @@ Trójwymiarowa symulacja bilarda u¿ywaj±ca OpenGL.
 
 %build
 cd src
-sed -e "s:/usr/share/:%{_datadir}/:" Namen.h > Namen
-mv -f Namen Namen.h
+sed -i -e "s:/usr/X11R6/lib:/usr/X11R6/%{_lib}:g" Makefile
+sed -i -e "s:/usr/share/:%{_datadir}/:" Namen.h
 %{__make}
 
 %install
