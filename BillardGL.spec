@@ -1,6 +1,6 @@
 Name:		BillardGL
 Summary:	3D billard simulation using OpenGL
-Summary(pl.UTF-8):   Symulacja bilarda używająca OpenGL
+Summary(pl.UTF-8):	Symulacja bilarda używająca OpenGL
 Version:	1.75
 Release:	2
 Group:		X11/Applications/Games
