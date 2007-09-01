@@ -29,11 +29,11 @@ sed -i -e "s:/usr/share/:%{_datadir}/:" Namen.h
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name}/Texturen/{1,2,4,8}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name}/lang,%{_datadir}/%{name}/Texturen/{1,2,4,8}}
 
 cd src
 install BillardGL $RPM_BUILD_ROOT%{_bindir}
-install lang/*.lang $RPM_BUILD_ROOT%{_datadir}/%{name}
+install lang/*.lang $RPM_BUILD_ROOT%{_datadir}/%{name}/lang
 
 for j in 1 2 4 8 ; do
 	for i in Texturen/$j/*; do
