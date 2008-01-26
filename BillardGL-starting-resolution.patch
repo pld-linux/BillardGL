@@ -1,0 +1,21 @@
+diff -ruN billard-gl-1.75.orig/src/KommandoZeilenParameter.cpp billard-gl-1.75/src/KommandoZeilenParameter.cpp
+--- billard-gl-1.75.orig/src/KommandoZeilenParameter.cpp	2002-04-23 18:04:13.000000000 +0200
++++ billard-gl-1.75/src/KommandoZeilenParameter.cpp	2005-01-22 12:42:31.000000000 +0100
+@@ -144,7 +144,7 @@
+   BandenFaktor         = 0.4;
+   KollisionsFaktor     = 0.95;
+   ZBufferLoeschen      = 1;
+-  BildschirmAufloesung = 800;
++  BildschirmAufloesung = 640;
+   Farbtiefe            = 16;
+   Reflektionen         = 0;
+   Sprache              = 0;
+@@ -154,7 +154,7 @@
+   TischLampen          = 2;
+   GrueneLampe          = 0;
+ 
+-  FullScreen           = 1;
++  FullScreen           = 0;
+ 
+   EffektLautstaerke    = .5;
+   MusikLautstaerke     = .5;

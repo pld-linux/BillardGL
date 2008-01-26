@@ -1,0 +1,46 @@
+diff -ruN billard-gl-1.75.orig/src/BillardGL.cpp billard-gl-1.75/src/BillardGL.cpp
+--- billard-gl-1.75.orig/src/BillardGL.cpp	2002-04-23 18:17:42.000000000 +0200
++++ billard-gl-1.75/src/BillardGL.cpp	2005-01-23 03:50:58.000000000 +0100
+@@ -35,8 +35,6 @@
+ 
+ #include "BillardGL.h"
+ 
+-#pragma comment(linker, "/subsystem:\"windows\" /entry:\"mainCRTStartup\"")
+-
+ //Tabellen
+ GLfloat Bewegungstabelle[2000][16][3];
+ GLint   Soundtabelle[1000];
+diff -ruN billard-gl-1.75.orig/src/bmp.cpp billard-gl-1.75/src/bmp.cpp
+--- billard-gl-1.75.orig/src/bmp.cpp	2002-04-22 12:31:24.000000000 +0200
++++ billard-gl-1.75/src/bmp.cpp	2005-01-23 03:50:43.000000000 +0100
+@@ -4,14 +4,16 @@
+ // Modified by Volker Blanz, 25.4.2001
+ //
+ 
+-#include <iostream.h>
+-#include <fstream.h>
++#include <iostream>
++#include <fstream>
+ #include <stdio.h>
+ #include <string.h>
+ #include "LA.h"
+ #include "Namen.h"
+ #include "bmp.h"
+ 
++using namespace std;
++
+ // from ioutil:
+ 
+ WORDX readWord(FILE *f) {
+diff -ruN billard-gl-1.75.orig/src/Kugel.cpp billard-gl-1.75/src/Kugel.cpp
+--- billard-gl-1.75.orig/src/Kugel.cpp	2002-04-22 12:58:08.000000000 +0200
++++ billard-gl-1.75/src/Kugel.cpp	2005-01-31 04:03:54.000000000 +0100
+@@ -123,7 +123,7 @@
+         glBindTexture(GL_TEXTURE_2D,Texturen[TG]);
+ 	sprintf(Name,"Texturen/%i/%i.bmp",TG,Nr); 
+ 	loadBMP(tex_r,tex_g,tex_b,Name);
+-	GLfloat *texcoord;
++	GLfloat *texcoord = NULL;
+ 	if (tex_r.nrh!=tex_r.nch) {
+ 	  GLfloat Aspekt=(tex_r.nch+1.0)/(tex_r.nrh+1.0);
+ 	  texcoord = (GLfloat*) malloc (20*(Aufloesung+1)*(Aufloesung+2)*sizeof(GLfloat));
