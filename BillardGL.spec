@@ -2,12 +2,14 @@ Name:		BillardGL
 Summary:	3D billard simulation using OpenGL
 Summary(pl.UTF-8):	Symulacja bilarda używająca OpenGL
 Version:	1.75
-Release:	2
+Release:	3
 Group:		X11/Applications/Games
 License:	GPL
 Vendor:		University of Freiburg / Germany
 Source0:	http://billardgl.sourceforge.net/download/%{name}-%{version}.tar.gz
 # Source0-md5:	46f2cf99e1a2b2aa4707d3500e43be47
+Source1:	%{name}.desktop
+Source2:	%{name}.xpm
 Patch0:		%{name}-starting-resolution.patch
 Patch1:		%{name}-depracted.patch
 Patch2:		%{name}-config_buffer_overflows.patch
@@ -38,11 +40,13 @@ sed -i -e "s:/usr/share/:%{_datadir}/:" Namen.h
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name}/lang,%{_datadir}/%{name}/Texturen/{1,2,4,8}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_desktopdir},%{_pixmapsdir},%{_datadir}/%{name}/lang,%{_datadir}/%{name}/Texturen/{1,2,4,8}}
 
 cd src
 install BillardGL $RPM_BUILD_ROOT%{_bindir}
 install lang/*.lang $RPM_BUILD_ROOT%{_datadir}/%{name}/lang
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
+install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 for j in 1 2 4 8 ; do
 	for i in Texturen/$j/*; do
@@ -58,3 +62,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc src/README
 %attr(755,root,root) %{_bindir}/BillardGL
 %{_datadir}/%{name}
+%{_desktopdir}/*.desktop
+%{_pixmapsdir}/*.xpm
