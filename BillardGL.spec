@@ -8,8 +8,14 @@ License:	GPL
 Vendor:		University of Freiburg / Germany
 Source0:	http://billardgl.sourceforge.net/download/%{name}-%{version}.tar.gz
 # Source0-md5:	46f2cf99e1a2b2aa4707d3500e43be47
+Patch0:		%{name}-starting-resolution.patch
+Patch1:		%{name}-depracted.patch
+Patch2:		%{name}-config_buffer_overflows.patch
 URL:		http://www.tobias-nopper.de/BillardGL/
+BuildRequires:	freeglut-devel
 BuildRequires:	sed >= 4.0
+BuildRequires:	xorg-lib-libXi-devel
+BuildRequires:	xorg-lib-libXmu-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -20,6 +26,9 @@ Trójwymiarowa symulacja bilarda używająca OpenGL.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
 cd src
