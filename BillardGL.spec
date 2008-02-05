@@ -1,11 +1,10 @@
-Name:		BillardGL
 Summary:	3D billard simulation using OpenGL
 Summary(pl.UTF-8):	Symulacja bilarda używająca OpenGL
+Name:		BillardGL
 Version:	1.75
 Release:	3
 Group:		X11/Applications/Games
 License:	GPL
-Vendor:		University of Freiburg / Germany
 Source0:	http://billardgl.sourceforge.net/download/%{name}-%{version}.tar.gz
 # Source0-md5:	46f2cf99e1a2b2aa4707d3500e43be47
 Source1:	%{name}.desktop
@@ -14,7 +13,7 @@ Patch0:		%{name}-starting-resolution.patch
 Patch1:		%{name}-depracted.patch
 Patch2:		%{name}-config_buffer_overflows.patch
 URL:		http://www.tobias-nopper.de/BillardGL/
-BuildRequires:	freeglut-devel
+BuildRequires:	OpenGL-glut-devel
 BuildRequires:	sed >= 4.0
 BuildRequires:	xorg-lib-libXi-devel
 BuildRequires:	xorg-lib-libXmu-devel
@@ -32,11 +31,15 @@ Trójwymiarowa symulacja bilarda używająca OpenGL.
 %patch1 -p1
 %patch2 -p1
 
+sed -i -e "s:-L/usr/X11R6/lib::" src/Makefile
+sed -i -e "s:/usr/share/:%{_datadir}/:" src/Namen.h
+
 %build
-cd src
-sed -i -e "s:/usr/X11R6/lib:/usr/X11R6/%{_lib}:g" Makefile
-sed -i -e "s:/usr/share/:%{_datadir}/:" Namen.h
-%{__make}
+%{__make} -C src \
+	CXX="%{__cxx}" \
+	CXXFLAGS="%{rpmcxxflags} -Wall -W %{!?debug:-DNO_DEBUG}" \
+	LINK="%{__cxx}" \
+	LFLAGS="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
