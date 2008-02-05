@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=BillardGL
 Comment=OpenGL pool billiard simulation
+Comment[pl]=Symulacja bilarda wykorzystująca OpenGL
 Exec=BillardGL
 Icon=BillardGL
 Terminal=false
