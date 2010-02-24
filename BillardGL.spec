@@ -13,12 +13,11 @@ Patch0:		%{name}-starting-resolution.patch
 Patch1:		%{name}-depracted.patch
 Patch2:		%{name}-config_buffer_overflows.patch
 URL:		http://www.tobias-nopper.de/BillardGL/
-BuildRequires:	OpenGL-glut-devel >= 4.0
+BuildRequires:	OpenGL-glut-devel
 BuildRequires:	rpmbuild(macros) >= 1.167
 BuildRequires:	sed >= 4.0
 BuildRequires:	xorg-lib-libXi-devel
 BuildRequires:	xorg-lib-libXmu-devel
-Requires:	OpenGL-glut >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
