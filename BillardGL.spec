@@ -3,8 +3,8 @@ Summary(pl.UTF-8):	Symulacja bilarda używająca OpenGL
 Name:		BillardGL
 Version:	1.75
 Release:	3
-Group:		X11/Applications/Games
 License:	GPL
+Group:		X11/Applications/Games
 Source0:	http://billardgl.sourceforge.net/download/%{name}-%{version}.tar.gz
 # Source0-md5:	46f2cf99e1a2b2aa4707d3500e43be47
 Source1:	%{name}.desktop
@@ -13,11 +13,12 @@ Patch0:		%{name}-starting-resolution.patch
 Patch1:		%{name}-depracted.patch
 Patch2:		%{name}-config_buffer_overflows.patch
 URL:		http://www.tobias-nopper.de/BillardGL/
-BuildRequires:	OpenGL-glut-devel
+BuildRequires:	OpenGL-glut-devel >= 4.0
 BuildRequires:	rpmbuild(macros) >= 1.167
 BuildRequires:	sed >= 4.0
 BuildRequires:	xorg-lib-libXi-devel
 BuildRequires:	xorg-lib-libXmu-devel
+Requires:	OpenGL-glut >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
