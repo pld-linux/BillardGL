@@ -28,9 +28,9 @@ Trójwymiarowa symulacja bilarda używająca OpenGL.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
+%patch -P0 -p1
+%patch -P1 -p1
+%patch -P2 -p1
 
 sed -i -e "s:-L/usr/X11R6/lib::" src/Makefile
 sed -i -e "s:/usr/share/:%{_datadir}/:" src/Namen.h
